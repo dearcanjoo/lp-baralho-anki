@@ -11,6 +11,8 @@ COPY favicon-16.png /usr/share/nginx/html/
 COPY favicon-32.png /usr/share/nginx/html/
 COPY favicon-180.png /usr/share/nginx/html/
 COPY wp-content/ /usr/share/nginx/html/wp-content/
+COPY unicamp/ /usr/share/nginx/html/unicamp/
+COPY uerj/ /usr/share/nginx/html/uerj/
 
 EXPOSE 80
 
