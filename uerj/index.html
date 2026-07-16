@@ -10,24 +10,21 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
-<!-- Microsoft Clarity -->
-<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xjh44j54rt");</script>
-<!-- Meta Pixel -->
+<link rel="preload" as="image" href="../wp-content/uploads/2026/07/hero-baralho.webp" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet"></noscript>
+<!-- Analytics (Clarity + Meta Pixel) carregados de forma diferida p/ desempenho -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2056868631597430');
-fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','2056868631597430');fbq('track','PageView');
+(function(c,a){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}})(window,"clarity");
+(function(){var done=false;function load(){if(done)return;done=true;
+var f=document.createElement('script');f.async=1;f.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(f);
+var c=document.createElement('script');c.async=1;c.src='https://www.clarity.ms/tag/xjh44j54rt';document.head.appendChild(c);}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true})});
+addEventListener('load',function(){setTimeout(load,2500)});})();
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2056868631597430&ev=PageView&noscript=1"/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2056868631597430&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
 <style>
 :root{
@@ -229,7 +226,7 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
   <section class="hero">
     <div class="wrap">
       <h1 class="h1">Domine a <span class="rx">prova discursiva da UERJ</span></h1>
-      <div class="hero-media"><img src="../wp-content/uploads/2026/07/hero-baralho.webp" alt="Flashcards do baralho para a discursiva da UERJ no Anki" width="1100" height="825"></div>
+      <div class="hero-media"><img src="../wp-content/uploads/2026/07/hero-baralho.webp" alt="Flashcards do baralho para a discursiva da UERJ no Anki" width="1100" height="825" fetchpriority="high" decoding="async"></div>
       <a class="cta to-price" href="#preco">Quero o Baralho da Discursiva UERJ</a>
     </div>
   </section>
@@ -244,12 +241,12 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
         <div class="fvtag">Biologia · Seleção Natural e Evolução</div>
         <div class="fvstep a">
           <div class="fvstep-h"><span class="fvbadge before">No baralho</span>Esse conceito está no seu baralho <span class="sub">(frente e verso)</span></div>
-          <img src="../wp-content/uploads/2026/07/uerj-disc-baralho-1.webp" alt="Flashcard do baralho sobre seleção natural e o processo de adaptação" loading="lazy">
+          <img src="../wp-content/uploads/2026/07/uerj-disc-baralho-1.webp" alt="Flashcard do baralho sobre seleção natural e o processo de adaptação" loading="lazy" width="1100" height="1119">
         </div>
         <div class="fvlink">e caiu na discursiva da UERJ</div>
         <div class="fvstep q">
           <div class="fvstep-h"><span class="fvbadge after">Na prova</span>A discursiva cobrou exatamente esse conceito</div>
-          <img src="../wp-content/uploads/2026/07/uerj-disc-prova-1.webp" alt="Questão discursiva da UERJ 2026 sobre seleção natural em aves parasitas" loading="lazy">
+          <img src="../wp-content/uploads/2026/07/uerj-disc-prova-1.webp" alt="Questão discursiva da UERJ 2026 sobre seleção natural em aves parasitas" loading="lazy" width="1100" height="538">
         </div>
       </div>
 
@@ -257,12 +254,12 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
         <div class="fvtag">Biologia · Insulina e Diabetes</div>
         <div class="fvstep a">
           <div class="fvstep-h"><span class="fvbadge before">No baralho</span>Esse conceito está no seu baralho <span class="sub">(frente e verso)</span></div>
-          <img src="../wp-content/uploads/2026/07/uerj-disc-baralho-2.webp" alt="Flashcard do baralho sobre ação e regulação da insulina no controle da glicemia" loading="lazy">
+          <img src="../wp-content/uploads/2026/07/uerj-disc-baralho-2.webp" alt="Flashcard do baralho sobre ação e regulação da insulina no controle da glicemia" loading="lazy" width="1100" height="1119">
         </div>
         <div class="fvlink">e caiu na discursiva da UERJ</div>
         <div class="fvstep q">
           <div class="fvstep-h"><span class="fvbadge after">Na prova</span>A discursiva cobrou exatamente esse conceito</div>
-          <img src="../wp-content/uploads/2026/07/uerj-disc-prova-2.webp" alt="Questão discursiva da UERJ 2026 sobre tirzepatida, insulina e diabetes tipo 2" loading="lazy">
+          <img src="../wp-content/uploads/2026/07/uerj-disc-prova-2.webp" alt="Questão discursiva da UERJ 2026 sobre tirzepatida, insulina e diabetes tipo 2" loading="lazy" width="1100" height="469">
         </div>
       </div>
 
@@ -270,12 +267,12 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
         <div class="fvtag">Biologia · Estômatos e Transpiração</div>
         <div class="fvstep a">
           <div class="fvstep-h"><span class="fvbadge before">No baralho</span>Esse conceito está no seu baralho <span class="sub">(frente e verso)</span></div>
-          <img src="../wp-content/uploads/2026/07/uerj-disc-baralho-3.webp" alt="Flashcard do baralho sobre a ação dos estômatos e a transpiração vegetal" loading="lazy">
+          <img src="../wp-content/uploads/2026/07/uerj-disc-baralho-3.webp" alt="Flashcard do baralho sobre a ação dos estômatos e a transpiração vegetal" loading="lazy" width="1100" height="1068">
         </div>
         <div class="fvlink">e caiu na discursiva da UERJ</div>
         <div class="fvstep q">
           <div class="fvstep-h"><span class="fvbadge after">Na prova</span>A discursiva cobrou exatamente esse conceito</div>
-          <img src="../wp-content/uploads/2026/07/uerj-disc-prova-3.webp" alt="Questão discursiva da UERJ 2026 sobre estômatos, transpiração e ácido abscísico" loading="lazy">
+          <img src="../wp-content/uploads/2026/07/uerj-disc-prova-3.webp" alt="Questão discursiva da UERJ 2026 sobre estômatos, transpiração e ácido abscísico" loading="lazy" width="1100" height="583">
         </div>
       </div>
 
@@ -363,7 +360,7 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg>Privacidade Protegida</div>
       </div>
       <div class="guar">
-        <img src="../wp-content/uploads/2026/02/garantee.webp" alt="Garantia de 14 dias">
+        <img src="../wp-content/uploads/2026/02/garantee.webp" alt="Garantia de 14 dias" width="768" height="769" loading="lazy">
         <b>Garantia Incondicional de 14 dias</b>
         <p>Estude sem riscos! Se o baralho não ajudar na sua preparação, devolvemos 100% do seu investimento sem burocracia.</p>
       </div>
@@ -391,7 +388,7 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
 </main>
 
 <footer>
-  <img class="lg-img" src="../wp-content/uploads/2026/07/logo-decoraai.png" alt="Decora Aí">
+  <img class="lg-img" src="../wp-content/uploads/2026/07/logo-decoraai.png" alt="Lembra-se">
   <p>Decora Aí | Soluções para Estudantes</p>
   <p>COPYRIGHT 2026 | Decora Aí | Todos os Direitos Reservados.</p>
 </footer>
