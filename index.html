@@ -365,7 +365,7 @@ footer p{margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto;}
         <div class="from">De <s>R$ 197,00</s><br>por apenas:</div>
         <div class="price"><small>R$</small>37<small>,00</small></div>
         <div class="parc">ou 8x de R$ 5,47 no cartão</div>
-        <a class="cta plan-cta" href="https://pay.cakto.com.br/ux7p9zj_971271" style="margin-top:22px;" onclick="if(window.fbq)fbq('track','InitiateCheckout');">Quero acessar agora!</a>
+        <a class="cta plan-cta" href="https://pay.cakto.com.br/ux7p9zj_971271" style="margin-top:22px;">Quero acessar agora!</a>
       </div>
       <div class="badges">
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Compra Segura</div>
@@ -428,6 +428,67 @@ document.querySelectorAll("a.to-price").forEach(function(a){
     setTimeout(tick,1000);
   }
   tick();
+})();
+</script>
+<script>
+(function () {
+  // ===== Configuração (opcional) =====
+  var DISPARAR_IC = true;    // false se o seu Pixel estiver instalado DENTRO do checkout (evita IC duplicado)
+  var SELETOR_EXTRA = '';    // botão que não é link? coloque um seletor CSS aqui (ex.: '.botao-comprar')
+  var DOMINIOS_EXTRAS = [];  // checkout fora da lista? adicione (ex.: ['meucheckout.com'])
+  // ===================================
+  var CHECKOUTS = ['cakto','kiwify','hotmart','perfectpay','kirvano','ticto','monetizze','braip',
+    'payt','greenn','eduzz','pepper','hubla','lastlink','cartpanda','yampi','appmax','zouti',
+    'tribopay','pagtrust','guru','cinqpay','vega'].concat(DOMINIOS_EXTRAS);
+  var CAMPOS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid','sck'];
+  var CHAVE = 'mcf_utms';
+  function ehCheckout(href) {
+    if (!href) return false;
+    var h = String(href).toLowerCase();
+    for (var i = 0; i < CHECKOUTS.length; i++) if (h.indexOf(CHECKOUTS[i]) !== -1) return true;
+    return false;
+  }
+  // 1. Captura e guarda as UTMs da URL (sobrevive a funis de várias páginas)
+  var p = new URLSearchParams(location.search);
+  var achados = {};
+  CAMPOS.forEach(function (k) { if (p.get(k)) achados[k] = p.get(k); });
+  if (Object.keys(achados).length) {
+    try { localStorage.setItem(CHAVE, JSON.stringify(achados)); } catch (e) {}
+  }
+  var salvos = {};
+  try { salvos = JSON.parse(localStorage.getItem(CHAVE) || '{}'); } catch (e) {}
+  // 2. Injeta as UTMs em todo link de checkout (inclusive criados depois)
+  function aplicar() {
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      if (!ehCheckout(a.href)) return;
+      try {
+        var u = new URL(a.href, location.href);
+        CAMPOS.forEach(function (k) { if (salvos[k] && !u.searchParams.get(k)) u.searchParams.set(k, salvos[k]); });
+        a.href = u.toString();
+      } catch (e) {}
+    });
+  }
+  aplicar();
+  document.addEventListener('DOMContentLoaded', aplicar);
+  new MutationObserver(aplicar).observe(document.documentElement, { childList: true, subtree: true });
+  // 3. InitiateCheckout no clique que leva ao checkout (qualquer texto de botão)
+  function marcarIC() {
+    if (!window.fbq) return;
+    var agora = Date.now();
+    var ultimo = 0;
+    try { ultimo = Number(sessionStorage.getItem('mcf_ic')) || 0; } catch (e) {}
+    if (agora - ultimo < 15000) return; // não repete em cliques seguidos
+    try { sessionStorage.setItem('mcf_ic', String(agora)); } catch (e) {}
+    fbq('track', 'InitiateCheckout');
+  }
+  if (DISPARAR_IC) {
+    document.addEventListener('click', function (e) {
+      if (!e.target || !e.target.closest) return;
+      var link = e.target.closest('a[href]');
+      if (link && ehCheckout(link.href)) return marcarIC();
+      if (SELETOR_EXTRA && e.target.closest(SELETOR_EXTRA)) return marcarIC();
+    }, true);
+  }
 })();
 </script>
 </body>
