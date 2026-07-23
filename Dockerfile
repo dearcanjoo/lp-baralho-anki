@@ -13,6 +13,7 @@ COPY favicon-180.png /usr/share/nginx/html/
 COPY wp-content/ /usr/share/nginx/html/wp-content/
 COPY unicamp/ /usr/share/nginx/html/unicamp/
 COPY uerj/ /usr/share/nginx/html/uerj/
+COPY enamed/ /usr/share/nginx/html/enamed/
 
 EXPOSE 80
 
